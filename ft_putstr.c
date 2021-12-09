@@ -1,22 +1,20 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_pustr.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgeorgin <tgeorgin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 19:28:06 by tgeorgin          #+#    #+#             */
-/*   Updated: 2021/10/22 19:28:09 by tgeorgin         ###   ########.fr       */
+/*   Created: 2021/11/05 15:27:13 by tgeorgin          #+#    #+#             */
+/*   Updated: 2021/11/08 13:52:06 by tgeorgin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+void	ft_putstr(char *s)
 {
 	if (!s)
 		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	write(0, s, ft_strlen(s));
 }

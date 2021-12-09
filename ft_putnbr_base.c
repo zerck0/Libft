@@ -1,22 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
+/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tgeorgin <tgeorgin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/10/22 19:28:06 by tgeorgin          #+#    #+#             */
-/*   Updated: 2021/10/22 19:28:09 by tgeorgin         ###   ########.fr       */
+/*   Created: 2021/10/25 19:02:05 by tgeorgin          #+#    #+#             */
+/*   Updated: 2021/10/25 19:13:14 by tgeorgin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
 #include "libft.h"
 
-void	ft_putendl_fd(char *s, int fd)
+int	ft_putnbr_base(unsigned long long nb, const char *base)
 {
-	if (!s)
-		return ;
-	write(fd, s, ft_strlen(s));
-	write(fd, "\n", 1);
+	unsigned long long	len;
+	int					cnt;
+
+	cnt = 0;
+	len = ft_strlen(base);
+	if (nb >= len)
+		cnt += ft_putnbr_base(nb / len, base);
+	cnt += ft_putchar(base[nb % len]);
+	return (cnt);
 }

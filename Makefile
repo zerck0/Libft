@@ -6,13 +6,11 @@
 #    By: tgeorgin <tgeorgin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 14:01:37 by tgeorgin          #+#    #+#              #
-#    Updated: 2021/06/02 14:09:31 by tgeorgin         ###   ########.fr        #
+#    Updated: 2021/12/09 04:12:19 by tgeorgin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft.a
-
-SRC = ft_isalpha.c	\
+SRCS = ft_isalpha.c	\
 			ft_isdigit.c	\
 			ft_tolower.c	\
 			ft_toupper.c 	\
@@ -29,6 +27,7 @@ SRC = ft_isalpha.c	\
 			ft_memcmp.c		\
 			ft_strlen.c		\
 			ft_strchr.c 	\
+			ft_strcmp.c		\
 			ft_strncmp.c 	\
 			ft_strrchr.c 	\
 			ft_strlcpy.c 	\
@@ -38,16 +37,32 @@ SRC = ft_isalpha.c	\
 			ft_strdup.c 	\
 			ft_putchar_fd.c \
 			ft_putstr_fd.c	\
+			ft_putstr.c		\
 			ft_putendl_fd.c	\
 			ft_putnbr_fd.c	\
 			ft_split.c		\
 			ft_itoa.c		\
 			ft_strjoin.c	\
 			ft_strmapi.c	\
+			ft_putchar.c	\
 			ft_substr.c		\
 			ft_strtrim.c	\
+			ft_uitoa.c		\
+			ft_ullen.c		\
+			ft_ultoa_base.c	\
+			ft_putnbr_base.c\
+			get_next_line_utils.c\
+			get_next_line.c\
+			ft_printf/ft_printf.c\
+			ft_printf/srcs/flag_c.c\
+			ft_printf/srcs/flag_s.c\
+			ft_printf/srcs/flag_di.c\
+			ft_printf/srcs/flag_p.c\
+			ft_printf/srcs/flag_u.c\
+			ft_printf/srcs/flag_x.c\
+			ft_printf/srcs/flag_pourcent.c\
 
-BONUS = ft_lstnew.c	\
+SRCSB = ft_lstnew.c	\
 			ft_lstadd_front.c\
 			ft_lstsize.c	\
 			ft_lstlast.c	\
@@ -58,19 +73,32 @@ BONUS = ft_lstnew.c	\
 			ft_lstiter.c	\
 			ft_lstmap.c 	\
 
-OBJ = $(SRC:.c=.o) $(BONUS:.c=.o)
-all: $(NAME)
+OBJS		= ${SRCS:.c=.o}
 
-$(NAME) : $(SRC)
-	@gcc -Wall -Wextra -Werror -c $(SRC) $(BONUS)
-	@ar rc $(NAME) $(OBJ)
+OBJSB		= $(OBJS) ${SRCSB:.c=.o}
 
+PRINTF		= ft_printf
+
+NAME		= libft.a
+
+CC			= gcc
+
+CCFLAGS 	= -Wall -Werror -Wextra
+
+all:		${NAME}
+
+${NAME}: 	$(OBJS)
+			@ar -rcs $@ $(OBJS)
 clean:
-	@rm -f $(OBJ)
+					rm -f ${OBJSB}
 
-fclean: clean
-	@rm -f $(NAME)
+fclean:		clean
+					rm -f ${NAME}
 
-re: fclean all
 
-.PHONY: all, clean, fclean, re
+re:			fclean all
+
+bonus:		$(OBJSB)
+			@ar -rcs $(NAME) ${OBJSB}
+
+.PHONY:		all clean fclean re

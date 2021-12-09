@@ -6,7 +6,7 @@
 /*   By: tgeorgin <tgeorgin@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/24 16:45:57 by tgeorgin          #+#    #+#             */
-/*   Updated: 2021/05/24 17:20:43 by tgeorgin         ###   ########.fr       */
+/*   Updated: 2021/06/02 15:29:37 by tgeorgin         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +21,11 @@ char	*ft_strrchr(const char *str, int c)
 	i = 0;
 	while (str[i])
 	{
-		if (str[i] == c)
+		if (str[i] == (char)c)
 			ptr = (char *)&str[i];
 		i++;
 	}
-	if (str[i] == c)
+	if (str[i] == (char)c)
 		ptr = (char *)&str[i];
 	return (ptr);
 }
