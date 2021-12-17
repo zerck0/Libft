@@ -6,7 +6,7 @@
 #    By: tgeorgin <tgeorgin@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/05/21 14:01:37 by tgeorgin          #+#    #+#              #
-#    Updated: 2021/12/09 04:12:19 by tgeorgin         ###   ########.fr        #
+#    Updated: 2021/12/17 16:35:08 by tgeorgin         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,8 +51,8 @@ SRCS = ft_isalpha.c	\
 			ft_ullen.c		\
 			ft_ultoa_base.c	\
 			ft_putnbr_base.c\
-			get_next_line_utils.c\
-			get_next_line.c\
+			get_next_line_utils_bonus.c\
+			get_next_line_bonus.c\
 			ft_printf/ft_printf.c\
 			ft_printf/srcs/flag_c.c\
 			ft_printf/srcs/flag_s.c\
